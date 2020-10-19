@@ -1,0 +1,27 @@
+{
+  "name": "readme.md-generator",
+  "version": "1.0.0",
+  "description": "A node.js automation program which takes user input from the terminal and generates a simple README.md",
+  "main": "generator-readme.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xenonth/README.md-Generator.git"
+  },
+  "keywords": [
+    "readme",
+    "generator"
+  ],
+  "author": "Timothy Forbes",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xenonth/README.md-Generator/issues"
+  },
+  "homepage": "https://github.com/xenonth/README.md-Generator#readme",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "inquirer": "^7.3.3"
+  }
+}
