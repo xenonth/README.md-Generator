@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/xenonth/README.md-Generator#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "fs": "0.0.1-security",
     "inquirer": "^7.3.3"
   }
