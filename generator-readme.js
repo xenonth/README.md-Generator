@@ -18,14 +18,8 @@ const questions=
 "Are there any other Contributors to this project?",
 "Test Instructions for user's to Troubleshoot?",
 ];
-// async function to catalogue data then pass it into writeToFile
+// function to catalogue data then pass it into writeToFile
 
-// function to write README file
-
-async function writeToFile(fileName, data) {
-
-}
-// async await functions for each question type
 const questionSetPrompt = () => {
     inquirer.prompt([
         {
@@ -83,36 +77,77 @@ const questionSetPrompt = () => {
 ])
 }
 
-// function to select license option
+// function to write README file
+
+ function writeToFile(fileName, data) {
+     
+    fs.writeFile(fileName, data, (error) => {
+          // throws an error, you could also catch it here
+      if (error) throw error;
+  
+      // success case, the file was saved
+      console.log('Success! Readme Written');
+
+    });
+    
+
+}
+// function to generate README
+function githubLink (answers) {
+    const queryUrl = `https://api.github.com/users/${answers.username}`;
+    axios({
+      method: 'get',
+      url: queryUrl,
+    })
+    .then(function (response) {
+        console.log(response.data.html_url)
+        const githubLink = response.data.html_url;
+        return githubLink;
+    })
+}
+
+function generateReadMeData (answers) {
+    githubLink (answers);
+    return `
+    #${answers.title}
+    ------------------------------------------------
+    ### Description
+    ${answers.description}
+    ------------------------------------------------
+    ### How to Install
+    ${answers.install}
+    ------------------------------------------------
+    ### Instructions
+    ${answers.instruction}
+    ------------------------------------------------
+    ### Usage
+    ${answers.usage}
+    ------------------------------------------------
+    ### Other Contributors
+    ${answers.contributorNumber}
+    ------------------------------------------------
+    ### TEST
+    ${answers.test}
+    ------------------------------------------------
+    ##### Questions 
+    Please send any queries to ${githubLink ()}
+    `
+}
 
 // function to write and append github link
 
     //github.then link may be needed
-    /*.then(function({ username }) {
-        const queryUrl = `https://api.github.com/users/${username}`;
-        axios({
-          method: 'get',
-          url: queryUrl,
-        })
-    .then(function (response) {
-            console.log(response.data.html_url)
-            const githubLink = response.data.html_url;
-            return githubLink;
-        })
-    });
-} */
+
+ 
 
 // function to initialize program
 const init = async () => {
    console.log("hi")
         try {
           const answers = await questionSetPrompt();
-      
-          //const README = generateReadMe(answers);
-      
-          //await writeFileAsync("index.html", README);
-      
-          //console.log("Successfully wrote to index.html");
+          writeToFile("README.md", generateReadMeData(answers));
+
+          console.log("Successfully wrote to index.html");
         } catch(err) {
           console.log(err);
         }
@@ -120,29 +155,3 @@ const init = async () => {
 
 // function call to initialize program
 init();
-
-/*.then(function({ contributerNumber }) {
-    console.log(contributorNumber);
-    //If there 
-    if ((contributerNumber !== 0) && (contributerNumber < 4))  {
-        for (let i=0; i < contributerNumber; i++) {
-            inquirer.prompt([{
-                name: "username",
-                message: `What is Contributor No. ${i}'s User Name?`,
-                type: "input"}])
-
-            .then(function({ username }) {
-                const queryUrl = `https://api.github.com/users/${username}`;
-                axios({
-                    method: 'get',
-                    url: queryUrl,
-                })
-                .then(function (response) {
-                    console.log(response.data.html_url)
-                    let githubLink = response.data.html_url;
-                    console.log(githubLink)
-                })
-            })
-        } // else statement for more than 4 contributors to ask if it is a company project and link company name here.
-    }
-}) */
