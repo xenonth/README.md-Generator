@@ -75,23 +75,8 @@ const questionSetPrompt = () => {
 ])
 }
 
-// function to write README file
-
- async function writeToFileAsync(fileName, data) {
-     
-    fs.writeFileSync(fileName, data, (error) => {
-          // throws an error, you could also catch it here
-      if (error) throw error;
-  
-      // success case, the file was saved
-      console.log('Success! Readme Written');
-
-    });
-    
-
-}
 // function to generate README
-function generateReadMeData (answers) {
+function generateReadMeData (answers, githubLink) {
     return `
     #${answers.title}
     ------------------------------------------------
@@ -113,50 +98,28 @@ function generateReadMeData (answers) {
     ### TEST
     ${answers.test}
     ------------------------------------------------
-    ##### Questions 
-    Please send any queries to ${githubLink ()}
+
     `
+    //##### Questions 
+    //Please send any queries to ${githubLink}
 }
 
 // function to write and append github link
-function githubLink () {
-    inquirer.prompt([{
-        name: "username",
-        message: "What is your Github User Name?",
-        type: "input",
-    },])  
-    .then(function({ username }) {
-        const queryUrl = `https://api.github.com/users/${username}`;
-        axios({
-            method: 'get',
-            url: queryUrl,
-        })
-    })  .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
 
-    .then(function (response) {
-        console.log(response.data.html_url)
-        const githubLink = response.data.html_url;
-        return githubLink;
-    })   .catch(function (error) {
-        // handle error
-        console.log(error);
-    })
-}
 
 
 
 // function to initialize program
+
 const init = async () => {
    console.log("hi")
         try {
           const answers = await questionSetPrompt();
+          //const githubSite = await githubLink ();          
 
           const readme = generateReadMeData (answers);
 
-          await writeFileAsync("readme.md", readme);
+          await writeFileAsync("README.md", readme);
 
           console.log("Successfully wrote to readme.md");
         } catch(err) {
