@@ -19,6 +19,7 @@ const questions=
 "Usage Information of the Program?",
 "Which License do you wish your program to be under?",
 "Are there any other Contributors to this project?",
+"What is your email address for user's to contact?",
 "Test Instructions for user's to Troubleshoot?",
 ];
 // function to catalogue data then pass it into writeToFile
@@ -60,7 +61,7 @@ const questionSetPrompt = () => {
         name: "license",
         message: questions[5],
         type: "list",
-        choices: ["MIT", "AGPL ", "GPLv3", "Apache License 2.0"],
+        choices: ["MIT", "AGPL ", "BSD3", "Apache License 2.0"],
     },
     {
         name: "contributorNumber",
@@ -72,13 +73,18 @@ const questionSetPrompt = () => {
         message: questions[-1],
         type: "input",
     },
+    {
+        name: "email",
+        message: questions[7],
+        type: "input" 
+    }
 ])
 }
 
 // function to generate README
 function generateReadMeData (answers, githubLink) {
     return `
-    #${answers.title}
+    #${answers.title}               [!License](${})
     ------------------------------------------------
     ### Description
     ${answers.description}
@@ -98,9 +104,10 @@ function generateReadMeData (answers, githubLink) {
     ### TEST
     ${answers.test}
     ------------------------------------------------
-
+    ##### Questions 
+    For any issues please contact ${answers.email}
     `
-    //##### Questions 
+    //
     //Please send any queries to ${githubLink}
 }
 
