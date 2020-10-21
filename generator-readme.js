@@ -84,7 +84,7 @@ const questionSetPrompt = () => {
 // function to generate README
 function generateReadMeData (answers, githubLink) {
     return `
-    #${answers.title}               [!License](${})
+    #${answers.title}               [!License](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/${answers.license}.png)
     ------------------------------------------------
     ### Description
     ${answers.description}
