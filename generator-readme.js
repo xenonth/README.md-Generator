@@ -4,6 +4,9 @@ const axios= require("axios");
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { cpuUsage } = require("process");
+const util = require("util");
+
+const writeFileAsync = util.promisify(fs.writeFile);
 
 
 // Ideas Array for questions
@@ -21,7 +24,7 @@ const questions=
 // function to catalogue data then pass it into writeToFile
 
 const questionSetPrompt = () => {
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             name: "title",
             message: questions[0],
@@ -69,19 +72,14 @@ const questionSetPrompt = () => {
         message: questions[-1],
         type: "input",
     },
-    {
-        name: "username",
-        message: "What is your Github User Name?",
-        type: "input",
-    }
 ])
 }
 
 // function to write README file
 
- function writeToFile(fileName, data) {
+ async function writeToFileAsync(fileName, data) {
      
-    fs.writeFile(fileName, data, (error) => {
+    fs.writeFileSync(fileName, data, (error) => {
           // throws an error, you could also catch it here
       if (error) throw error;
   
@@ -93,21 +91,7 @@ const questionSetPrompt = () => {
 
 }
 // function to generate README
-function githubLink (answers) {
-    const queryUrl = `https://api.github.com/users/${answers.username}`;
-    axios({
-      method: 'get',
-      url: queryUrl,
-    })
-    .then(function (response) {
-        console.log(response.data.html_url)
-        const githubLink = response.data.html_url;
-        return githubLink;
-    })
-}
-
 function generateReadMeData (answers) {
-    githubLink (answers);
     return `
     #${answers.title}
     ------------------------------------------------
@@ -135,19 +119,46 @@ function generateReadMeData (answers) {
 }
 
 // function to write and append github link
+function githubLink () {
+    inquirer.prompt([{
+        name: "username",
+        message: "What is your Github User Name?",
+        type: "input",
+    },])  
+    .then(function({ username }) {
+        const queryUrl = `https://api.github.com/users/${username}`;
+        axios({
+            method: 'get',
+            url: queryUrl,
+        })
+    })  .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
 
-    //github.then link may be needed
+    .then(function (response) {
+        console.log(response.data.html_url)
+        const githubLink = response.data.html_url;
+        return githubLink;
+    })   .catch(function (error) {
+        // handle error
+        console.log(error);
+    })
+}
 
- 
+
 
 // function to initialize program
 const init = async () => {
    console.log("hi")
         try {
           const answers = await questionSetPrompt();
-          writeToFile("README.md", generateReadMeData(answers));
 
-          console.log("Successfully wrote to index.html");
+          const readme = generateReadMeData (answers);
+
+          await writeFileAsync("readme.md", readme);
+
+          console.log("Successfully wrote to readme.md");
         } catch(err) {
           console.log(err);
         }
@@ -155,3 +166,5 @@ const init = async () => {
 
 // function call to initialize program
 init();
+
+
