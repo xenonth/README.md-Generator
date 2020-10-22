@@ -87,17 +87,17 @@ function generateReadMeData (answers) {
     return `
     # ${answers.title}               
     
-    [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/${answers.license}.png)
+    ![Alt text](https://github.com/xenonth/README.md-Generator/blob/master/badge-image/${answers.license}.png?raw=true "License Badge")
     
     ### Table of Contents
 
-    * [!Description](#Description)
-    * [!Installation](#Installation)
-    * [!Usage](#Usage)
-    * [!License](#License)
-    * [!Contributing](#Contributing)
-    * [!Tests](#TEST)
-    * [!Questions](#Questions)
+    * [Description](#Description)
+    * [Installation](#Installation)
+    * [Usage](#Usage)
+    * [License](#License)
+    * [Contributing](#Contributing)
+    * [Tests](#TEST)
+    * [Questions](#Questions)
    
     ### Description
     ${answers.description}
