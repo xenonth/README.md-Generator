@@ -23,7 +23,7 @@ A program designed to generate a readme Markdown file by answering a set of ques
     ### Instructions
     Once the above programs have been installed the next step is to then type node generator-readme.js.  A series of questions are asked which require text or number input and then will write the file with the following information.  There is not minimum or maximum with the number of characters which you can use for this file.  
 
-    ![Demonstration-Video](https://drive.google.com/file/d/1dRAyaEmOOeiutS7bDHvl3B5ENkak8Erk/view)
+    [Demonstration-Video](https://drive.google.com/file/d/1dRAyaEmOOeiutS7bDHvl3B5ENkak8Erk/view)
     
     ### Usage
     Intended for developers with node.js proficiency.
@@ -32,4 +32,4 @@ A program designed to generate a readme Markdown file by answering a set of ques
     I tried to be creative with Axios calls however, kept recieving many errors and with having simple understanding of promises, I decided to ask for the username instead and input that into the required part of the url link which still does the same thing however you are unable to upload or place it to a specific repository and will overwrite the readme file of the immediate repository that the readme file is already in.
     
     ##### Questions 
-    For any issues please contact timothy.forbes259@gmail.com, and go here to view other projects [!github profile](https://github.com/xenonth)
+    For any issues please contact timothy.forbes259@gmail.com, and go here to view other projects [github profile](https://github.com/xenonth)
