@@ -85,17 +85,19 @@ const questionSetPrompt = () => {
 // function to generate README
 function generateReadMeData (answers) {
     return `
-    #${answers.title}               [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/${answers.license}.png)
+    # ${answers.title}               
+    
+    [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/${answers.license}.png)
     
     ### Table of Contents
 
-    * [Description] (#Description)
-    * [Installation] (#Installation)
-    * [Usage] (#Usage)
-    * [License] (#License)
-    * [Contributing] (#Contributing)
-    * [Tests] (#TEST)
-    * [Questions] (#Questions)
+    * [!Description](#Description)
+    * [!Installation](#Installation)
+    * [!Usage](#Usage)
+    * [!License](#License)
+    * [!Contributing](#Contributing)
+    * [!Tests](#TEST)
+    * [!Questions](#Questions)
    
     ### Description
     ${answers.description}

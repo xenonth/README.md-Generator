@@ -1,34 +1,34 @@
-
-    #a               [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/MIT.png)
+# README-Generator            
+[!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/MIT.png)
     
-    ### Table of Contents
+### Table of Contents
 
-    * [Description] (#Description)
-    * [Installation] (#Installation)
-    * [Usage] (#Usage)
-    * [License] (#License)
-    * [Contributing] (#Contributing)
-    * [Tests] (#TEST)
-    * [Questions] (#Questions)
+* [!Description](#Description)
+* [!Installation](#Installation)
+* [!Usage](#Usage)
+* [!License](#License)
+* [!Contributing](#Contributing)
+* [!Tests](#TEST)
+* [!Questions](#Questions)
    
-    ### Description
-    a
+ ### Description
+A program designed to generate a readme Markdown file by answering a set of questions inside a terminal using node.js Inquirer.  One major bug is during upload the readme file fails to load which means the last phase of testing to test links in the file cannot be checked.   AFter course classes it was a lot easier to understand and build the program with aide and advice from the TA and the course instructor.    
 
-    ### How to Install
-    a
+### How to Install
+* If you do not have node.js you must first install node.js
+* Next run npm init, then npm install Inquirer,
+* followed by npm install util, and npm install fs.
 
     ### Instructions
-    a
+    Once the above programs have been installed the next step is to then type node generator-readme.js.  A series of questions are asked which require text or number input and then will write the file with the following information.  There is not minimum or maximum with the number of characters which you can use for this file.  
 
-    ### Usage
-    a
-   
-    ### Other Contributors
-    a
+    [!Demonstration-Video](https://drive.google.com/file/d/1dRAyaEmOOeiutS7bDHvl3B5ENkak8Erk/view)
     
-    ### TEST
-    a
+    ### Usage
+    Intended for developers with node.js proficiency.
+
+    ### Development Story
+    I tried to be creative with Axios calls however, kept recieving many errors and with having simple understanding of promises, I decided to ask for the username instead and input that into the required part of the url link which still does the same thing however you are unable to upload or place it to a specific repository and will overwrite the readme file of the immediate repository that the readme file is already in.
     
     ##### Questions 
-    For any issues please contact a, and go here to view other projects [!github profile](https://github.com/a)
-    
+    For any issues please contact timothy.forbes259@gmail.com, and go here to view other projects [!github profile](https://github.com/xenonth)
