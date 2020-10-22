@@ -85,41 +85,41 @@ const questionSetPrompt = () => {
 // function to generate README
 function generateReadMeData (answers) {
     return `
-    # ${answers.title}               
-    
-    ![Alt text](https://github.com/xenonth/README.md-Generator/blob/master/badge-image/${answers.license}.png?raw=true "License Badge")
-    
-    ### Table of Contents
+# ${answers.title}               
 
-    * [Description](#Description)
-    * [Installation](#Installation)
-    * [Usage](#Usage)
-    * [License](#License)
-    * [Contributing](#Contributing)
-    * [Tests](#TEST)
-    * [Questions](#Questions)
-   
-    ### Description
-    ${answers.description}
+![Github License](https://img.shields.io/badge/license-${answers.license}-blue.svg)
 
-    ### How to Install
-    ${answers.install}
+### Table of Contents
 
-    ### Instructions
-    ${answers.instruction}
+* [Description](#Description)
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [License](#License)
+* [Contributing](#Contributing)
+* [Tests](#TEST)
+* [Questions](#Questions)
 
-    ### Usage
-    ${answers.usage}
-   
-    ### Other Contributors
-    ${answers.contributorNumber}
-    
-    ### TEST
-    ${answers.test}
-    
-    ##### Questions 
-    For any issues please contact ${answers.email}, and go here to view other projects [!github profile](https://github.com/${answers.username})
-    `
+### Description
+${answers.description}
+
+### How to Install
+${answers.install}
+
+### Instructions
+${answers.instruction}
+
+### Usage
+${answers.usage}
+
+### Other Contributors
+${answers.contributorNumber}
+
+### TEST
+${answers.test}
+
+##### Questions 
+For any issues please contact ${answers.email}, and go here to view other projects [!github profile](https://github.com/${answers.username})
+`
     //
     //Please send any queries to ${githubLink}
 }
