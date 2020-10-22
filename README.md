@@ -1,6 +1,6 @@
 
-    #readme generator               [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/Apache License 2.0.png)
-    ------------------------------------------------
+    #a               [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/MIT.png)
+    
     ### Table of Contents
 
     * [Description] (#Description)
@@ -10,25 +10,25 @@
     * [Contributing] (#Contributing)
     * [Tests] (#TEST)
     * [Questions] (#Questions)
-    -----------------------------------------------
+   
     ### Description
-    Automated program to generate a readme.
-    ------------------------------------------------
+    a
+
     ### How to Install
-    REquires nodejs proficiency and the command node generator-readme.js
-    ------------------------------------------------
+    a
+
     ### Instructions
-    answer the prompt inputs which will automatically update the readme
-    ------------------------------------------------
+    a
+
     ### Usage
-    there should be no errors in the applciation
-    ------------------------------------------------
+    a
+   
     ### Other Contributors
-    NaN
-    ------------------------------------------------
+    a
+    
     ### TEST
-    n/A
-    ------------------------------------------------
+    a
+    
     ##### Questions 
-    For any issues please contact timothy.forbes259@gmail.com, and go here to view other projects [!github profile](https://github.com/xenonth)
+    For any issues please contact a, and go here to view other projects [!github profile](https://github.com/a)
     

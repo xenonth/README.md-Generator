@@ -54,11 +54,6 @@ const questionSetPrompt = () => {
         type: "input",
     },
     {
-        name: "contributorNumber",
-        message: questions[6],
-        type: "number",
-    },
-    {
         name: "license",
         message: questions[5],
         type: "list",
@@ -67,7 +62,7 @@ const questionSetPrompt = () => {
     {
         name: "contributorNumber",
         message: questions[6],
-        type: "number",
+        type: "input",
     },
     {
         name: "test",
@@ -91,7 +86,7 @@ const questionSetPrompt = () => {
 function generateReadMeData (answers) {
     return `
     #${answers.title}               [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/${answers.license}.png)
-    ------------------------------------------------
+    
     ### Table of Contents
 
     * [Description] (#Description)
@@ -101,25 +96,25 @@ function generateReadMeData (answers) {
     * [Contributing] (#Contributing)
     * [Tests] (#TEST)
     * [Questions] (#Questions)
-    -----------------------------------------------
+   
     ### Description
     ${answers.description}
-    ------------------------------------------------
+
     ### How to Install
     ${answers.install}
-    ------------------------------------------------
+
     ### Instructions
     ${answers.instruction}
-    ------------------------------------------------
+
     ### Usage
     ${answers.usage}
-    ------------------------------------------------
+   
     ### Other Contributors
     ${answers.contributorNumber}
-    ------------------------------------------------
+    
     ### TEST
     ${answers.test}
-    ------------------------------------------------
+    
     ##### Questions 
     For any issues please contact ${answers.email}, and go here to view other projects [!github profile](https://github.com/${answers.username})
     `
@@ -142,7 +137,7 @@ const init = async () => {
 
           const readme = generateReadMeData (answers);
             console.log("Updating README.md ...")
-          await writeFileAsync("README.md", readme);
+          await writeFileAsync("readme.md", readme);
 
           console.log("Successfully wrote to readme.md");
         } catch(err) {
