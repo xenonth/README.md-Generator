@@ -1,6 +1,7 @@
 // have a seperate function for each question which is cleanly listed inside writefile plant await x function inside with file creation inside the seperate functions. 
 
 const axios= require("axios");
+const { Console } = require("console");
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { cpuUsage } = require("process");
@@ -18,7 +19,7 @@ const questions=
 "Instructions to use the program?",
 "Usage Information of the Program?",
 "Which License do you wish your program to be under?",
-"Are there any other Contributors to this project?",
+"Names of other contributors for this Project, (if not type N/A)?",
 "What is your email address for user's to contact?",
 "Test Instructions for user's to Troubleshoot?",
 ];
@@ -77,15 +78,30 @@ const questionSetPrompt = () => {
         name: "email",
         message: questions[7],
         type: "input" 
+    },
+    {
+    name: "username",
+    message: "What is your Github User Name?",
+    type: "input",
     }
 ])
 }
 
 // function to generate README
-function generateReadMeData (answers, githubLink) {
+function generateReadMeData (answers) {
     return `
-    #${answers.title}               [!License](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/${answers.license}.png)
+    #${answers.title}               [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/${answers.license}.png)
     ------------------------------------------------
+    ### Table of Contents
+
+    * [Description] (#Description)
+    * [Installation] (#Installation)
+    * [Usage] (#Usage)
+    * [License] (#License)
+    * [Contributing] (#Contributing)
+    * [Tests] (#TEST)
+    * [Questions] (#Questions)
+    -----------------------------------------------
     ### Description
     ${answers.description}
     ------------------------------------------------
@@ -105,7 +121,7 @@ function generateReadMeData (answers, githubLink) {
     ${answers.test}
     ------------------------------------------------
     ##### Questions 
-    For any issues please contact ${answers.email}
+    For any issues please contact ${answers.email}, and go here to view other projects [!github profile](https://github.com/${answers.username})
     `
     //
     //Please send any queries to ${githubLink}
@@ -125,12 +141,12 @@ const init = async () => {
           //const githubSite = await githubLink ();          
 
           const readme = generateReadMeData (answers);
-
+            console.log("Updating README.md ...")
           await writeFileAsync("README.md", readme);
 
           console.log("Successfully wrote to readme.md");
         } catch(err) {
-          console.log(err);
+          console.log("An error was encountered please run program again");
         }
     }
 

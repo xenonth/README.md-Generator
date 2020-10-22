@@ -1,24 +1,34 @@
 
-    #hunger and devastation               [!License](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/MIT.png)
+    #readme generator               [!Alt Text](https://github.com/xenonth/README.md-Generator/tree/main/badge-image/Apache License 2.0.png)
     ------------------------------------------------
+    ### Table of Contents
+
+    * [Description] (#Description)
+    * [Installation] (#Installation)
+    * [Usage] (#Usage)
+    * [License] (#License)
+    * [Contributing] (#Contributing)
+    * [Tests] (#TEST)
+    * [Questions] (#Questions)
+    -----------------------------------------------
     ### Description
-    ogog go
+    Automated program to generate a readme.
     ------------------------------------------------
     ### How to Install
-    jkl;
+    REquires nodejs proficiency and the command node generator-readme.js
     ------------------------------------------------
     ### Instructions
-    fo
+    answer the prompt inputs which will automatically update the readme
     ------------------------------------------------
     ### Usage
-    d
+    there should be no errors in the applciation
     ------------------------------------------------
     ### Other Contributors
-    0
+    NaN
     ------------------------------------------------
     ### TEST
-    a
+    n/A
     ------------------------------------------------
     ##### Questions 
-    For any issues please contact kjf;lsafdswlaf;asf
+    For any issues please contact timothy.forbes259@gmail.com, and go here to view other projects [!github profile](https://github.com/xenonth)
     
